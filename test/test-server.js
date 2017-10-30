@@ -169,4 +169,34 @@ describe("Recipes", function () {
       });
   });
 
+  it("should add a recipe on POST", function () {
+    let newRecipe = {
+      name: "Awesome Cake",
+      ingredients: ["sugar", "flour", "milk", "awesome"]
+    };
+
+    return chai.request(app)
+      .post("/recipes")
+      .send(newRecipe)
+      .then(function (res) {
+        // console.log(res);
+        res.should.have.status(201);
+        res.should.be.json;
+        res.should.be.a("object");
+        res.body.should.include.keys("id", "name", "ingredients");
+
+        // extra Thinkful tests
+        res.body.name.should.equal(newRecipe.name);
+        res.body.ingredients.should.be.a("array");
+        res.body.ingredients.should.include.members(newRecipe.ingredients);
+
+        res.body.id.should.not.be.null;
+        // Response should be deep equal to `newRecipe` from above
+        // if we assign `id` to it from `res.body.id`
+        // What is deep equal?
+        let compareObj = Object.assign(newRecipe, {id: res.body.id});
+        res.body.should.deep.equal(compareObj);
+      });
+  });
+
 });
