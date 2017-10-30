@@ -138,3 +138,16 @@ describe('Shopping List', function() {
       });
   });
 });
+
+
+describe("Recipes", function () {
+  before(function () {
+    return runServer();
+  });
+
+  after(function () {
+    return closeServer();
+  });
+
+  
+});
