@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: TJCfw9y++9X7317f7zr7JQ18kXG7Tj6VpDT+L/48MQjn9qVsLeVJQpOEXxtx5zPO2YP3pzEEIrpdHuXSX7GHR5+O3ceMmc3mwFD88aarOEc51+PuawhOsd6sjl2g2dql6GBo5P8bz9IJ4GKLOYkFYDSC/RJ+E2Xal9bkwdl4pnzgBGo3X6rkfhd96LJptVj9YMcnFX3lCvHOc8+erFmtDkUskJeQEgDnsKwOlqSiYxk3kFIFCCo81EmoYa5yb4pfEs6yhG9WcZQvqDJMur29wj+nxF/P2EoOIO2qFJZvDGGHu6vPSakFoatdi5VhcylJctiSep62Q53PHzMvRSUZtdXxz2t72SUXDDCKsdCoah6GVK9++UP5Z3ao/yvTkgTb2SOQ3ldowxHyG+fsKDmuLBTNK1FfR2HD1X70Fihclr1PGmftd8M+ImNW3WmTIYh31Gixa6hidaXEWuUadDmvt1sVx+131A9Yw/lmKidZf0jJKz1+JISmWeORbR1eoNMc2NYh0JVHKfUNOO+FwlOYnlEmyGvUYyqRg9I49vx/i4Q/fAKf2G0qCO2VLiqZiWvgtMbCQxnWldAd34njmhaA/n00MpkjEeBfqx33kBn5y6xpcK5LXmybYQZjiLeEm6EYXMj5YQlWXcFPmBHYVJLhugTNzVhqli96MlSHMJQeNOE=
+  app: cryptic-basin-68001
+  on:
+    repo: dermio/node-shopping-list-integration-tests
