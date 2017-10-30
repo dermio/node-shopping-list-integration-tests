@@ -199,4 +199,28 @@ describe("Recipes", function () {
       });
   });
 
+  it("should update recipes on PUT", function () {
+    let updateData = {
+      name: "Num nums yum yums",
+      ingredients: ["proteins", "lipids", "carbohyrdates"]
+    };
+
+    return chai.request(app)
+      // first have to GET recipes, in order to have an `id` to update.
+      .get("/recipes")
+      .then(function (res) {
+        // console.log(res);
+        updateData.id = res.body[0].id;
+
+        // second do PUT request after getting a recipe
+        return chai.request(app)
+          .put(`/recipes/${updateData.id}`)
+          .send(updateData);
+      })
+      .then(function (res) {
+        // console.log(res);
+        res.should.have.status(204);
+      });
+  });
+
 });
