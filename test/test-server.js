@@ -223,4 +223,21 @@ describe("Recipes", function () {
       });
   });
 
+  it("should delete recipes on DELETE", function () {
+    return chai.request(app)
+      // first have to GET recipes, in order to have an `id` to delete.
+      .get("/recipes")
+      .then(function (res) {
+        // console.log(res);
+
+        // second, DELETE recipe after getting recipe
+        return chai.request(app)
+          .delete(`/recipes/${res.body[0].id}`);
+      })
+      .then(function (res) {
+        // console.log(res);
+        res.should.have.status(204);
+      });
+  });
+
 });
